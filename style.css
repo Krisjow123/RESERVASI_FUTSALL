@@ -1,0 +1,478 @@
+:root {
+    --primary-color: #00ff88;
+    /* Neon Green */
+    --secondary-color: #1a1a1a;
+    /* Dark Grey */
+    --dark-bg: #0f0f0f;
+    /* Almost Black */
+    --card-bg: #1e1e1e;
+    /* Lighter Dark for cards */
+    --text-light: #f5f5f5;
+    --text-muted: #b0b0b0;
+    /* Lightened from #a0a0a0 for better contrast */
+    --sidebar-width: 260px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    overflow-x: hidden;
+    margin-top: 80px;
+    /* Offset for fixed navbar */
+}
+
+/* Typography Customization */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+/* Bootstrap Utility Overrides for Dark Theme */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-secondary {
+    color: #d0d0d0 !important;
+}
+
+.text-dark {
+    color: var(--text-light) !important;
+    /* Invert text-dark to light for readability */
+}
+
+.bg-light {
+    background-color: var(--card-bg) !important;
+    color: var(--text-light) !important;
+}
+
+.card {
+    background-color: var(--card-bg);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
+.text-primary-custom {
+    color: var(--primary-color) !important;
+}
+
+/* Navbar Customization */
+.navbar {
+    background-color: transparent;
+    transition: all 0.3s ease;
+    padding: 1.5rem 0;
+}
+
+.navbar.scrolled {
+    background-color: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+.btn-custom-login {
+    background-color: var(--primary-color);
+    color: var(--dark-bg) !important;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-custom-login:hover {
+    background-color: transparent;
+    color: var(--primary-color) !important;
+}
+
+.btn-custom-outline {
+    background-color: transparent;
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-custom-outline:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-bg) !important;
+}
+
+/* Dashboard Sidebar */
+.sidebar {
+    position: fixed;
+    top: 80px;
+    /* Below navbar */
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 20px 0 0;
+    width: var(--sidebar-width);
+    background-color: #141414;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--text-muted);
+    display: block;
+    transition: 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.sidebar a:hover {
+    color: var(--text-light);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar a.active {
+    color: var(--primary-color);
+    background-color: rgba(0, 255, 136, 0.1);
+    border-left-color: var(--primary-color);
+}
+
+.sidebar i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Dashboard Main Content */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Stat Cards */
+.stat-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card h5 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-card .number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.stat-card .icon-bg {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 3.5rem;
+    color: rgba(255, 255, 255, 0.03);
+    transform: rotate(-15deg);
+}
+
+/* Dark Tables */
+.table {
+    color: var(--text-light);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table> :not(caption)>*>* {
+    background-color: transparent;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+.table thead th {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.table-hover>tbody>tr:hover>* {
+    background-color: rgba(0, 255, 136, 0.05);
+    color: var(--text-light);
+}
+
+/* Status Badges */
+.badge-pending {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.badge-confirmed,
+.badge-lunas,
+.badge-aktif {
+    background-color: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.badge-cancelled,
+.badge-batal {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Sidebar Toggle for Mobile (Placeholder for JS logic if needed) */
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 10px;
+        display: none;
+        /* Hidden by default on mobile unless toggled */
+    }
+
+    .sidebar.show {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+
+    body {
+        margin-top: 60px;
+    }
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('assets/img/hero.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 80px;
+    margin-top: -80px;
+    /* Counteract body margin for hero */
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    /* Ensure title is white */
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    /* Lighter than muted for hero */
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+/* Feature Cards */
+.feature-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    height: 100%;
+    margin-bottom: 0;
+    /* Override generic card margin */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+/* Auth Pages */
+.auth-container {
+    min-height: calc(100vh - 80px);
+    /* Full height minus footer/navbar approx */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.auth-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    margin-bottom: 0;
+}
+
+.auth-card h2,
+.auth-card h3 {
+    color: var(--text-light);
+}
+
+/* Dark Mode Form Controls */
+.form-control,
+.form-select {
+    background-color: #2a2a2a;
+    border: 1px solid #404040;
+    color: #ffffff !important;
+    /* Force white text in inputs */
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: #333;
+    border-color: var(--primary-color);
+    color: #ffffff !important;
+    box-shadow: 0 0 0 0.25rem rgba(0, 255, 136, 0.15);
+}
+
+.form-control::placeholder {
+    color: #adadad !important;
+    /* Much lighter placeholder */
+    opacity: 1;
+}
+
+.form-label {
+    color: #e0e0e0;
+    /* Explicit light color for labels */
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Input Group Styles */
+.input-group-text,
+.input-group-text i {
+    background-color: #2a2a2a !important;
+    border-color: #404040 !important;
+    color: #adadad !important;
+    /* Icon color */
+}
+
+/* Section Styling */
+.section-padding {
+    padding: 100px 0;
+}
+
+.section-title {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.section-title .divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Footer */
+.footer {
+    background-color: #050505;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer h5 {
+    color: var(--text-light);
+}
+
+.footer .text-muted {
+    color: #999 !important;
+    /* Specific override for footer muted text */
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background-color: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .auth-card {
+        padding: 2rem;
+    }
+}
